@@ -6,3 +6,12 @@
 - Support for localized lowercase and uppercase conversions.
 - Language support for French, Spanish, Czech, German, and Turkish.
 - Number-to-words conversion up to one million for supported languages.
+
+## [0.0.2] - 2024-10-28
+### Added
+- Added `example/example.dart` with usage examples for:
+    - Lowercase and uppercase text conversions across different languages (Turkish, French, Spanish, German, Czech).
+    - Number-to-words conversion for multiple languages, including Turkish, French, Spanish, German, and Czech.
+    - Error handling examples for unsupported languages and invalid number ranges.
+- Enhanced documentation for `LocalCase` methods to improve readability and usage clarity.
+- Updated `LocaleCaseError` messages for unsupported languages and invalid number ranges.

@@ -1,7 +1,10 @@
 import '../enum/local_case_language_enum.dart';
 import 'number_converter.dart';
 
+/// A converter class for handling Spanish-specific case conversions
+/// and number-to-words transformation.
 class SpanishConverter {
+  /// A map for converting uppercase Spanish characters to their lowercase equivalents.
   final Map<String, String> spanishLowercaseMap = {
     'Ñ': 'ñ',
     'Á': 'á',
@@ -12,6 +15,7 @@ class SpanishConverter {
     'Ü': 'ü'
   };
 
+  /// A map for converting lowercase Spanish characters to their uppercase equivalents.
   final Map<String, String> spanishUppercaseMap = {
     'ñ': 'Ñ',
     'á': 'Á',
@@ -22,6 +26,16 @@ class SpanishConverter {
     'ü': 'Ü'
   };
 
+  /// Converts a number between 11 and 19 to its Spanish word equivalent.
+  ///
+  /// This function provides specific words for Spanish "teens" (11 to 19),
+  /// such as "once" for 11 and "doce" for 12.
+  ///
+  /// Example:
+  /// ```dart
+  /// SpanishConverter.spanishTeens(13);
+  /// // Output: "trece"
+  /// ```
   static String spanishTeens(int number) {
     switch (number) {
       case 11:
@@ -47,6 +61,16 @@ class SpanishConverter {
     }
   }
 
+  /// Converts the given [text] to lowercase using Spanish-specific rules.
+  ///
+  /// This function maps uppercase Spanish characters to their lowercase
+  /// equivalents and returns the resulting lowercase string.
+  ///
+  /// Example:
+  /// ```dart
+  /// SpanishConverter().toLowercase("ÑANDÚ");
+  /// // Output: "ñandú"
+  /// ```
   String toLowercase(String text) {
     return text
         .split('')
@@ -57,6 +81,16 @@ class SpanishConverter {
         .toLowerCase();
   }
 
+  /// Converts the given [text] to uppercase using Spanish-specific rules.
+  ///
+  /// This function maps lowercase Spanish characters to their uppercase
+  /// equivalents and returns the resulting uppercase string.
+  ///
+  /// Example:
+  /// ```dart
+  /// SpanishConverter().toUppercase("ñandú");
+  /// // Output: "ÑANDÚ"
+  /// ```
   String toUppercase(String text) {
     return text
         .split('')
@@ -67,6 +101,17 @@ class SpanishConverter {
         .toUpperCase();
   }
 
+  /// Converts a given [number] to its word representation in Spanish.
+  ///
+  /// This method uses Spanish language-specific words for numbers and
+  /// supports values up to one million. For example, 256 is converted
+  /// to "doscientos cincuenta y seis" in Spanish.
+  ///
+  /// Example:
+  /// ```dart
+  /// SpanishConverter.convertNumberToWords(256);
+  /// // Output: "doscientos cincuenta y seis"
+  /// ```
   static String convertNumberToWords(int number) {
     final spanishUnits = [
       "",

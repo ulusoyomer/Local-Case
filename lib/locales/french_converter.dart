@@ -1,7 +1,10 @@
 import '../enum/local_case_language_enum.dart';
 import 'number_converter.dart';
 
+/// A converter class for handling French-specific case conversions
+/// and number-to-words transformation.
 class FrenchConverter {
+  /// A map for converting uppercase French characters to their lowercase equivalents.
   final Map<String, String> frenchLowercaseMap = {
     'É': 'é',
     'È': 'è',
@@ -17,6 +20,7 @@ class FrenchConverter {
     'Î': 'î'
   };
 
+  /// A map for converting lowercase French characters to their uppercase equivalents.
   final Map<String, String> frenchUppercaseMap = {
     'é': 'É',
     'è': 'È',
@@ -32,6 +36,16 @@ class FrenchConverter {
     'î': 'Î'
   };
 
+  /// Converts the given [text] to lowercase using French-specific rules.
+  ///
+  /// This function maps uppercase French characters to their lowercase
+  /// equivalents and returns the resulting lowercase string.
+  ///
+  /// Example:
+  /// ```dart
+  /// FrenchConverter().toLowercase("ÉCOLE");
+  /// // Output: "école"
+  /// ```
   String toLowercase(String text) {
     return text
         .split('')
@@ -42,6 +56,16 @@ class FrenchConverter {
         .toLowerCase();
   }
 
+  /// Converts the given [text] to uppercase using French-specific rules.
+  ///
+  /// This function maps lowercase French characters to their uppercase
+  /// equivalents and returns the resulting uppercase string.
+  ///
+  /// Example:
+  /// ```dart
+  /// FrenchConverter().toUppercase("école");
+  /// // Output: "ÉCOLE"
+  /// ```
   String toUppercase(String text) {
     return text
         .split('')
@@ -52,6 +76,17 @@ class FrenchConverter {
         .toUpperCase();
   }
 
+  /// Converts a given [number] to its word representation in French.
+  ///
+  /// This method uses French language-specific words for numbers and
+  /// supports values up to one million. For example, 256 is converted
+  /// to "deux cent cinquante-six" in French.
+  ///
+  /// Example:
+  /// ```dart
+  /// FrenchConverter.convertNumberToWords(256);
+  /// // Output: "deux cent cinquante-six"
+  /// ```
   static String convertNumberToWords(int number) {
     final frenchUnits = [
       "",

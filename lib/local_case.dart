@@ -7,7 +7,26 @@ import 'locales/czech_converter.dart';
 import 'locales/french_converter.dart';
 import 'locales/spanish_converter.dart';
 
+/// The `LocalCase` class provides static methods for converting text to uppercase
+/// and lowercase and for converting numbers to words based on the specified language.
 class LocalCase {
+  /// Converts the given [text] to lowercase according to language-specific rules.
+  ///
+  /// Parameters:
+  /// - [text]: The text to be converted to lowercase.
+  /// - [language]: The target language for the conversion, specified as a [LocalCaseLanguage].
+  ///
+  /// Returns:
+  /// - The converted lowercase string.
+  ///
+  /// Throws:
+  /// - [LocaleCaseError.unsupportedLanguage] if the specified language is not supported.
+  ///
+  /// Example:
+  /// ```dart
+  /// LocalCase.toLowercase(text: "HELLO", language: LocalCaseLanguage.turkish);
+  /// // Output: "hello" (in Turkish-specific lowercase conversion)
+  /// ```
   static String toLowercase(
       {required String text, required LocalCaseLanguage language}) {
     switch (language) {
@@ -26,6 +45,23 @@ class LocalCase {
     }
   }
 
+  /// Converts the given [text] to uppercase according to language-specific rules.
+  ///
+  /// Parameters:
+  /// - [text]: The text to be converted to uppercase.
+  /// - [language]: The target language for the conversion, specified as a [LocalCaseLanguage].
+  ///
+  /// Returns:
+  /// - The converted uppercase string.
+  ///
+  /// Throws:
+  /// - [LocaleCaseError.unsupportedLanguage] if the specified language is not supported.
+  ///
+  /// Example:
+  /// ```dart
+  /// LocalCase.toUppercase(text: "hello", language: LocalCaseLanguage.turkish);
+  /// // Output: "HELLO" (in Turkish-specific uppercase conversion)
+  /// ```
   static String toUppercase(
       {required String text, required LocalCaseLanguage language}) {
     switch (language) {
@@ -44,6 +80,23 @@ class LocalCase {
     }
   }
 
+  /// Converts a given [number] to its word representation in the specified language.
+  ///
+  /// Parameters:
+  /// - [number]: The number to be converted to words.
+  /// - [language]: The target language for the conversion, specified as a [LocalCaseLanguage].
+  ///
+  /// Returns:
+  /// - The number as a word string in the specified language.
+  ///
+  /// Throws:
+  /// - [LocaleCaseError.unsupportedLanguage] if the specified language is not supported.
+  ///
+  /// Example:
+  /// ```dart
+  /// LocalCase.convertNumberToWords(number: 123, language: LocalCaseLanguage.german);
+  /// // Output: "einhundertdreiundzwanzig" (in German-specific number conversion)
+  /// ```
   static String convertNumberToWords(
       {required int number, required LocalCaseLanguage language}) {
     switch (language) {

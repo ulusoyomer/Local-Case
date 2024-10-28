@@ -4,7 +4,35 @@ import 'package:local_case/locales/spanish_converter.dart';
 
 import '../errors/local_case_error.dart';
 
+/// A utility class for converting numbers to words and words to numbers.
 class NumberConverter {
+  /// Converts a given [number] to its word representation.
+  ///
+  /// Parameters:
+  /// - [number]: The integer number to be converted (must be between 0 and 999,999).
+  /// - [units]: List of unit words for the target language (e.g., ["", "one", "two"]).
+  /// - [tens]: List of tens words for the target language (e.g., ["", "ten", "twenty"]).
+  /// - [hundreds]: List of hundreds words for the target language.
+  /// - [zero]: The word for zero in the target language.
+  /// - [thousand]: The word for thousand in the target language.
+  /// - [language]: Optional language specifier to handle language-specific cases.
+  ///
+  /// Throws:
+  /// - [LocaleCaseError.invalidRange]: If [number] is outside the 0 to 999,999 range.
+  ///
+  /// Example:
+  /// ```dart
+  /// NumberConverter.convertNumberToWords(
+  ///   number: 256,
+  ///   units: ["", "eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun"],
+  ///   tens: ["", "zehn", "zwanzig", "dreißig"],
+  ///   hundreds: ["", "einhundert", "zweihundert"],
+  ///   zero: "null",
+  ///   thousand: "tausend",
+  ///   language: LocalCaseLanguage.german,
+  /// );
+  /// // Output: "zweihundertsechsundfünfzig"
+  /// ```
   static String convertNumberToWords({
     required int number,
     required List<String> units,
@@ -71,6 +99,27 @@ class NumberConverter {
     return "$thousandsPart$remainderPart".trim();
   }
 
+  /// Converts a given [text] in words to its integer number representation.
+  ///
+  /// Parameters:
+  /// - [text]: The word representation of the number to be converted.
+  /// - [wordsToNumbers]: A map of word-to-number conversions for the target language.
+  /// - [language]: Optional language specifier to handle language-specific cases.
+  ///
+  /// Returns:
+  /// - The integer representation of the word-based number.
+  ///
+  /// Example:
+  /// ```dart
+  /// NumberConverter.convertWordsToNumber(
+  ///   text: "zwei hundert sechsundfünfzig",
+  ///   wordsToNumbers: {
+  ///     "eins": 1, "zwei": 2, "hundert": 100, "sechsundfünfzig": 56
+  ///   },
+  ///   language: LocalCaseLanguage.german,
+  /// );
+  /// // Output: 256
+  /// ```
   static int convertWordsToNumber(
       {required String text,
       required Map<String, int> wordsToNumbers,
