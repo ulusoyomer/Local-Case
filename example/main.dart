@@ -2,7 +2,7 @@ import 'package:local_case/local_case.dart';
 import 'package:local_case/enum/local_case_language_enum.dart';
 
 void main() {
-  // Farklı dillerde metni küçük harfe dönüştürme örnekleri
+  // Examples of converting text to lowercase in different languages
   print(LocalCase.toLowercase(
       text: 'ÉNERGIE RENOUVELABLE', language: LocalCaseLanguage.french));
   print(LocalCase.toLowercase(
@@ -10,42 +10,43 @@ void main() {
   print(LocalCase.toLowercase(
       text: 'GUTEN TAG', language: LocalCaseLanguage.german));
 
-  // Türkçe büyük harfe dönüştürme örneği
+  // Example of converting text to uppercase in Turkish
   print(LocalCase.toUppercase(
       text: 'merhaba dünya', language: LocalCaseLanguage.turkish));
 
-  // Farklı dillerde sayıları kelimelere dönüştürme örnekleri
+  // Examples of converting numbers to words in different languages
   print(LocalCase.convertNumberToWords(
       number: 123,
-      language: LocalCaseLanguage.german)); // Çıktı: "einhundertdreiundzwanzig"
+      language:
+          LocalCaseLanguage.german)); // Output: "einhundertdreiundzwanzig"
   print(LocalCase.convertNumberToWords(
       number: 456,
       language: LocalCaseLanguage
-          .spanish)); // Çıktı: "cuatrocientos cincuenta y seis"
+          .spanish)); // Output: "cuatrocientos cincuenta y seis"
   print(LocalCase.convertNumberToWords(
       number: 789,
       language:
-          LocalCaseLanguage.french)); // Çıktı: "sept cent quatre-vingt-neuf"
+          LocalCaseLanguage.french)); // Output: "sept cent quatre-vingt-neuf"
   print(LocalCase.convertNumberToWords(
       number: 234,
-      language: LocalCaseLanguage.czech)); // Çıktı: "dvě stě třicet čtyři"
+      language: LocalCaseLanguage.czech)); // Output: "dvě stě třicet čtyři"
   print(LocalCase.convertNumberToWords(
       number: 567,
-      language: LocalCaseLanguage.turkish)); // Çıktı: "beş yüz altmış yedi"
+      language: LocalCaseLanguage.turkish)); // Output: "beş yüz altmış yedi"
 
-  // Hata yönetimi örneği
+  // Example of error handling for unsupported language
   try {
     print(LocalCase.toLowercase(
         text: 'unsupported', language: LocalCaseLanguage.unknown));
   } catch (e) {
-    print(e); // Çıktı: LocaleCaseError: Unsupported language
+    print(e); // Output: LocaleCaseError: Unsupported language
   }
 
-  // Geçersiz sayı aralığı için hata yönetimi örneği
+  // Example of error handling for an invalid number range
   try {
     print(LocalCase.convertNumberToWords(
         number: 1000000, language: LocalCaseLanguage.turkish));
   } catch (e) {
-    print(e); // Çıktı: LocaleCaseError: Invalid range
+    print(e); // Output: LocaleCaseError: Invalid range
   }
 }
