@@ -1,6 +1,6 @@
 name: local_case
 description: A Flutter package for localized text case conversion and number-to-words transformation, supporting multiple languages including French, Spanish, Czech, German, and Turkish.
-version: 0.0.3
+version: 0.0.4
 license: MIT
 homepage: https://github.com/ulusoyomer/Local-Case
 repository: https://github.com/ulusoyomer/Local-Case
