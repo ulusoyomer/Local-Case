@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.0.6] - 2024-10-28
+### Changed
+- Updated README.md
+
 ## [0.0.5] - 2024-10-28
 ### Changed
 - Updated Dart SDK constraints in `pubspec.yaml` to ">=2.12.0 <4.0.0" to ensure compatibility with null safety and future Dart versions.

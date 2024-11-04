@@ -13,7 +13,7 @@
 Add `local_case` to your `pubspec.yaml` file:
 ```yaml
 dependencies:
-  local_case: ^1.0.0
+  local_case: ^0.0.6
 ```
 
 Then, run `flutter pub get` to install the package.
